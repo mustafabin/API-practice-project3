@@ -23,9 +23,10 @@ nav {
 }
 a {
   text-decoration: none;
+  color: rgb(236, 248, 245);
 }
 a:hover {
-  color: rgb(155, 253, 229);
+  color: rgb(28, 206, 161);
 }
 p {
   padding: 15px;

@@ -18,11 +18,11 @@
 
   <nav>
 
-    <a>Home</a>
-    <a>Cat facts / pictures</a>
+    <a href="#main-page">Home</a>
+    <a href="#page-two">Cat facts / pictures</a>
 
   </nav>
-  <div class="home">
+  <div id="main-page" class="home">
     <img class="randomCatImage" src="" alt="randomCatImage">
     <section>
       <h1>The image above me is a random cat from the <a href="https://api.thecatapi.com/v1/images/search">CatApi</a>
@@ -32,7 +32,7 @@
     </section>
 
   </div>
-  <div class="input-field">
+  <div id="page-two" class="input-field">
     input a number between 2-100
     <input id="kittenValue" type="number" max="100" min="2" placeholder='2'>
     <button id="kittenButton">GENERATE THE KITTENS</button>
