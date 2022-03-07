@@ -46,7 +46,8 @@ let generateKittens = async () => {
       );
       let catImg = catApiResponse.data[0].url;
       let catFactResponse = await axios.get("https://catfact.ninja/fact");
-      let catFact = catFactResponse["fact"];
+
+      let catFact = catFactResponse.data.fact;
       createSlide(catImg, catFact);
     }
   }

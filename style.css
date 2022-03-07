@@ -86,7 +86,7 @@ section {
 .textBox {
   width: 75%;
   height: 40%;
-  overflow: hidden;
+  overflow: scroll;
   font-size: 1.5rem;
   word-wrap: break-word;
   align-self: center;
@@ -95,7 +95,8 @@ section {
 
 .imgBox {
   width: 65%;
-  height: 40%;
+  height: 75%;
+  margin: 5px;
   background-color: rgb(60, 0, 255);
   background-position: center center;
   background-size: cover;
