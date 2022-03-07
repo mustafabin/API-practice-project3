@@ -3,7 +3,6 @@ fetch("https://api.thecatapi.com/v1/images/search")
   .then(
     (data) => (document.querySelector(".randomCatImage").src = data[0].url)
   );
-
 document.getElementById("left").addEventListener("click", () => {
   scrollWidth = document.querySelector(".slide-container").offsetWidth;
   document.querySelector(".slide-gallery").scrollLeft -= scrollWidth;
@@ -24,8 +23,7 @@ let createSlide = (imgSrc, phrase) => {
   slideContainer.appendChild(imgBox);
   slideContainer.appendChild(textBox);
   textBox.innerText = phrase;
-  imgBox.style.backgroundImage =
-    "url('https://cdn2.thecatapi.com/images/MjA0MjYyMA.jpg')";
+  imgBox.style.backgroundImage = "url(" + imgSrc + ")";
   gallery.appendChild(slideContainer);
 };
 
@@ -36,18 +34,20 @@ let clearKittens = () => {
     kittyPanels.removeChild(kittyPanels.firstChild);
   }
 };
-let generateKittens = () => {
-  let iterations = document.getElementById("kittenValue").value;
+let generateKittens = async () => {
+  let iterations = document.querySelector("#kittenValue").value;
   if (iterations == undefined || iterations < 2 || iterations > 100) {
     alert("aye yo only numbers between 2-100");
   } else {
     clearKittens();
-    let imgSrcs = [];
     for (let i = 0; i < iterations; i++) {
-      fetch("https://api.thecatapi.com/v1/images/search")
-        .then((cat) => cat.json())
-        .then((data) => data[0].url);
-      createSlide(0, "yerr");
+      let catApiResponse = await axios.get(
+        "https://api.thecatapi.com/v1/images/search"
+      );
+      let catImg = catApiResponse.data[0].url;
+      let catFactResponse = await axios.get("https://catfact.ninja/fact");
+      let catFact = catFactResponse["fact"];
+      createSlide(catImg, catFact);
     }
   }
 };
