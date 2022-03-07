@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>API</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav>
+
+    <a>Home</a>
+    <a>Cat facts / pictures</a>
+
+  </nav>
+  <div class="home">
+    <img class="randomCatImage" src="" alt="randomCatImage">
+    <section>
+      <h1>The image above me is a random cat from the <a href="https://api.thecatapi.com/v1/images/search">CatApi</a>
+      </h1>
+      <p>below is a slider with random cats + random cat facts courtesy of <a
+          href="https://catfact.ninja/fact">catfact</a> </p>
+    </section>
+
+  </div>
+  <div class="input-field">
+    input a number between 2-100
+    <input id="kittenValue" type="number" max="100" min="2" placeholder='2'>
+    <button id="kittenButton">GENERATE THE KITTENS</button>
+  </div>
+  <div class="main-container">
+    <div class="left arrow">
+      <h1 class="arrow-key">
+        < </h1>
+    </div>
+    <div class="slide-gallery">
+
+
+    </div>
+    <div class="right arrow">
+      <h1 class="arrow-key">
+        < </h1>
+    </div>
+  </div>
+
+
+  <script src="script.js" async defer></script>
+</body>
+
+</html>
