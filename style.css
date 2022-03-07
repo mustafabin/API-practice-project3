@@ -119,7 +119,7 @@ section {
   display: inline-flex;
   flex-flow: column wrap;
   overflow: scroll;
-  transition: all 400ms ease;
+  transition: all 100ms ease;
 
   scroll-behavior: smooth;
 }

@@ -4,8 +4,13 @@ fetch("https://api.thecatapi.com/v1/images/search")
     (data) => (document.querySelector(".randomCatImage").src = data[0].url)
   );
 
-document.querySelector(".arrow").addEventListener("click", () => {
-  document.querySelector(".slide-gallery").scrollBy(610, 0);
+document.getElementById("left").addEventListener("click", () => {
+  scrollWidth = document.querySelector(".slide-container").offsetWidth;
+  document.querySelector(".slide-gallery").scrollLeft -= scrollWidth;
+});
+document.getElementById("right").addEventListener("click", () => {
+  scrollWidth = document.querySelector(".slide-container").offsetWidth;
+  document.querySelector(".slide-gallery").scrollLeft += scrollWidth;
 });
 
 let createSlide = (imgSrc, phrase) => {
@@ -24,13 +29,21 @@ let createSlide = (imgSrc, phrase) => {
   gallery.appendChild(slideContainer);
 };
 
+let clearKittens = () => {
+  let kittyPanels = document.querySelector(".slide-gallery");
+  kittyPanels.scrollBy(-600 * kittyPanels.childNodes.length, 0);
+  while (kittyPanels.hasChildNodes()) {
+    kittyPanels.removeChild(kittyPanels.firstChild);
+  }
+};
 let generateKittens = () => {
   let iterations = document.getElementById("kittenValue").value;
   if (iterations == undefined || iterations < 2 || iterations > 100) {
     alert("aye yo only numbers between 2-100");
   } else {
+    clearKittens();
+    let imgSrcs = [];
     for (let i = 0; i < iterations; i++) {
-      let imgSrcs = [];
       fetch("https://api.thecatapi.com/v1/images/search")
         .then((cat) => cat.json())
         .then((data) => data[0].url);
